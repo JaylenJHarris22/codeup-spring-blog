@@ -6,25 +6,26 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity
-@Table(name = "Posts")
-public class Post {
+@Table(name = "friends")
+public class Friend {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(nullable = false, length = 50)
+    private String name;
+
     @Column(nullable = false)
-    private String title;
+    private int age;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
-    private String body;
-
-    public Post(String title, String body){
-        this.title = title;
-        this.body = body;
+    public Friend(String name, int age){
+        this.name = name;
+        this.age = age;
     }
 }
+
