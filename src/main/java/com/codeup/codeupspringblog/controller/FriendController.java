@@ -1,8 +1,7 @@
 package com.codeup.codeupspringblog.controller;
 
-import com.codeup.codeupspringblog.Friend;
+import com.codeup.codeupspringblog.models.Friend;
 import com.codeup.codeupspringblog.repositories.FriendRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

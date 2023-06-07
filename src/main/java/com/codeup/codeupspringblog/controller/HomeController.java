@@ -1,6 +1,6 @@
 package com.codeup.codeupspringblog.controller;
 
-import com.codeup.codeupspringblog.Friend;
+import com.codeup.codeupspringblog.models.Friend;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,9 +32,9 @@ public class HomeController {
 
     @GetMapping("/home/{user}")
     public String userPage(@PathVariable String user, Model model){
-        Friend friend = new Friend(1, "Lily", 22);
-        Friend friend2 = new Friend(2, "Jame", 18);
-        Friend friend3 = new Friend(3, "Thomas", 30);
+        Friend friend = new Friend("Lily", 22);
+        Friend friend2 = new Friend("Jame", 18);
+        Friend friend3 = new Friend("Thomas", 30);
         List<Friend> friendsList = new ArrayList<>();
         friendsList.add(friend);
         friendsList.add(friend2);
