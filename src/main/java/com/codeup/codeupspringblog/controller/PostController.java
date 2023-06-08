@@ -37,17 +37,28 @@ public class PostController {
         return "/post/show";
     }
     @GetMapping("/posts/create")
-    public String createPost(){
+    public String createPost(Model model){
+        model.addAttribute("post", new Post());
         return "post/create";
     }
     @PostMapping("/posts/create")
-    public String pCreatePost(@RequestParam(name = "title") String title, @RequestParam(name = "body") String body){
-//        Post post = new Post(title, body, );
-        if(userDao.findById(1L).isPresent()){
-            User user = userDao.findById(1L).get();
-            Post post = new Post(title, body, user);
-            postDao.save(post);
-        }
+    public String pCreatePost(@ModelAttribute Post post){
+        post.setUser(userDao.findById(1L).get());
+        postDao.save(post);
+        return "redirect:/posts";
+    }
+
+    @GetMapping("/posts/{id}/edit")
+    public String editPost(Model model, @PathVariable long id){
+        Post post = postDao.findById(id).get();
+        model.addAttribute("post", post);
+        return "post/edit";
+    }
+
+    @PostMapping("/posts/{id}/edit")
+    public String pEditPost(@ModelAttribute Post post){
+        post.setUser(userDao.findById(1L).get());
+        postDao.save(post);
         return "redirect:/posts";
     }
 
