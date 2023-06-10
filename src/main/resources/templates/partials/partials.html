@@ -24,12 +24,15 @@
           <a class="nav-link" href="#">Pricing</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+          <form th:action="@{/logout}" method="post"><button>Logout</button></form>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+<div th:fragment="header">
+  <h1>Header</h1>
+</div>
 <footer th:fragment="footer" class="bg-light text-center text-lg-start">
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">

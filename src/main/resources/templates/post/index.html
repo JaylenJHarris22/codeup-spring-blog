@@ -6,6 +6,7 @@
     <title>Title</title>
 </head>
 <body>
+    <div th:replace="partials/partials :: navbar"></div>
     <div th:each="post : ${posts}">
         <h3 th:text="${post.title}"/>
         <p th:text="${post.body}"/>
