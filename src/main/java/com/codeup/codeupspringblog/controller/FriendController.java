@@ -22,7 +22,7 @@ public class FriendController {
         return "friend/index";
     }
 
-    @GetMapping("/friend/insert")
+    @GetMapping("/friend/add")
     public String showForm(){
         return "friend/add-friend";
     }
