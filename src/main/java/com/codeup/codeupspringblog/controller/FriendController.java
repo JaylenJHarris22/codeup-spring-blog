@@ -22,15 +22,9 @@ public class FriendController {
         return "friend/index";
     }
 
-    @GetMapping("/friend/add")
-    public String showForm(){
-        return "friend/add-friend";
+    @PostMapping("/friend/add")
+    public void showForm(){
+
     }
 
-    @PostMapping("/friend/insert")
-    public String insert(@RequestParam(name = "name") String name, @RequestParam(name = "age") int age){
-        Friend friend = new Friend(name, age);
-        friendDao.save(friend);
-        return "redirect:http://localhost:8888/friends";
-    }
 }
