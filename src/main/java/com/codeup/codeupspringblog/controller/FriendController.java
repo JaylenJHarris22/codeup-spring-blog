@@ -1,7 +1,9 @@
 package com.codeup.codeupspringblog.controller;
 
 import com.codeup.codeupspringblog.models.Friend;
+import com.codeup.codeupspringblog.models.User;
 import com.codeup.codeupspringblog.repositories.FriendRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +26,7 @@ public class FriendController {
 
     @PostMapping("/friend/add")
     public void showForm(){
-
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
 
 }
